@@ -1,8 +1,8 @@
 <?php
-    function inserirAdmin($conexao,$nomeAdmin,$emailAdmin,$senhaAdmin){
+    function inserirAdmin($conexao,$nomeAdm,$emailAdm,$senhaAdm){
         $option=['cost'=>8];
-        $senhacrypto= password_hash($senhaAdmin,PASSWORD_BCRYPT,$option);
-        $query="insert into tbadmin(nomeAdmin,emailAdmin,senhaAdmin)values('{$nomeAdmin}','{$emailAdmin}','{$senhacrypto}')";
+        $senhacrypto= password_hash($senhaAdm,PASSWORD_BCRYPT,$option);
+        $query="insert into tbadmin(nomeAdm,emailAdm,senhaAdm)values('{$nomeAdm}','{$emailAdm}','{$senhacrypto}')";
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }
@@ -11,15 +11,15 @@
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }
-    function alterarAdmin($conexao,$nomeAdmin,$emailAdmin,$senhaAdmin){
+    function alterarAdmin($conexao,$nomeAdm,$emailAdm,$senhaAdm){
         $option=['cost'=>8];
-        $senhacrypto= password_hash($senhaAdmin,PASSWORD_BCRYPT,$option);
-        $query="update tbadmin set nomeAdmin='{$nomeAdmin}', emailAdmin='{$emailAdmin}' where senhaAdmin='{$$senhacrypto}'";
+        $senhacrypto= password_hash($senhaAdm,PASSWORD_BCRYPT,$option);
+        $query="update tbadmin set nomeAdm='{$nomeAdm}', emailAdm='{$emailAdm}' where senhaAdm='{$senhacrypto}'";
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }
-    function deletarAdmin($conexao,$codAdmin){
-        $query="delete from tbadmin where codAdmin=$codAdmin";
+    function deletarAdmin($conexao,$codAdm){
+        $query="delete from tbadmin where codAdm=$codAdm";
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }

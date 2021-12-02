@@ -1,6 +1,6 @@
 <?php
 include("../model/conexao.php");
-include("../model/bancoFilmes.php");
+include("../model/bancoSeries.php");
 include("../view/header.php");
 ?>
 <div class="container3">
@@ -8,12 +8,12 @@ include("../view/header.php");
         <div class="card-body">
             <?php
             extract($_REQUEST,EXTR_OVERWRITE);
-            if(inserirFilmes($conexao,$nomeFil,$generoFil,$duracaoFil,$diretorFil,$roteiristaFil,$sinopseFil)){
-                echo("Seu filme foi enviado para analise com sucesso, retornaremos assim que analisado. ");
+            if(inserirSeries($conexao,$codProFK,$nomeSer,$generoSer,$episodiosSer,$temporadasSer,$sinopseSer)){
+                echo("Sua série foi enviada para analise com sucesso, retornaremos assim que analisado. ");
                 echo(";)");
             }else{
-                echo("<p>Seu filme não foi cadastrado.</p>");
-                echo("<a href='../view/cadastroClientes.php' type='button' class='btn btn-dark'>Voltar</a>");
+                echo("<p>Sua série não foi cadastrada.</p>");
+                echo("<a href='../view/cadastroSeries.php' type='button' class='btn btn-dark'>Voltar</a>");
             }
             ?>
         </div>

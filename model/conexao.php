@@ -2,7 +2,7 @@
 $url='localhost';
 $usuario='root';
 $senha='';
-$nomeBanco='netflixforbusinesses';
+$nomeBanco='netflixforproducers';
 
 $conexao=mysqli_connect($url,$usuario,$senha,$nomeBanco);
 ?>

@@ -5,6 +5,7 @@ include_once("header.php");
     <div class="card">
         <div class="card-body">
             <form method="POST" action="../controller/inserirSeries.php">
+                <p>Código da Produtora <input type="number" name="codProFK"></p>
                 <p>Nome <input type="text" name="nomeSer"></p>
                 <p>Gênero(s) <input type="text" name="generoSer"></p>
                 <p>Episódios <input type="number" name="episodiosSer"></p>

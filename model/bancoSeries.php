@@ -1,6 +1,6 @@
 <?php
-    function inserirSeries($conexao,$nomeSer,$generoSer,$episodiosSer,$temporadasSer,$sinopseSer){
-        $query="insert into tbseries(nomeSer,generoSer,episodiosSer,temporadasSer,sinopseSer)values('{$nomeSer}','{$generoSer}','{$episodiosSer}','{$temporadasSer}','{$sinopseSer}')";
+    function inserirSeries($conexao,$codProFK,$nomeSer,$generoSer,$episodiosSer,$temporadasSer,$sinopseSer){
+        $query="insert into tbseries(codProFK,nomeSer,generoSer,episodiosSer,temporadasSer,sinopseSer)values('{$codProFK}','{$nomeSer}','{$generoSer}','{$episodiosSer}','{$temporadasSer}','{$sinopseSer}')";
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }
@@ -20,8 +20,8 @@
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }
-    function alterarSeries($conexao,$nomeSer,$generoSer,$episodiosSer,$temporadasSer,$sinopseSer){
-        $query="update tbseries set nomeSer='{$nomeSer}', generoSer='{$generoSer}', episodiosSer='{$episodiosSer}', temporadasSer='{$temporadasSer}' where sinopseSer='{$sinopseSer}'";
+    function alterarSeries($conexao,$codProFK,$nomeSer,$generoSer,$episodiosSer,$temporadasSer,$sinopseSer){
+        $query="update tbseries set codProFK='{$codProFK}', nomeSer='{$nomeSer}', generoSer='{$generoSer}', episodiosSer='{$episodiosSer}', temporadasSer='{$temporadasSer}' where sinopseSer='{$sinopseSer}'";
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }

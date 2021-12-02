@@ -12,6 +12,7 @@ include_once("../model/bancoFilmes.php");
             $filme=listaFilmesCod($conexao,$codFil);
             ?>
                 <p>Código <input type="number" name="codFil" value="<?=$filme['codFil']?>" readonly></p>
+                <p>Código da Produtora <input type="number" name="codProFK" value="<?=$filme['codProFK']?>"></p>
                 <p>Nome <input type="text" name="nomeFil" value="<?=$filme['nomeFil']?>"></p>
                 <p>Gênero(s) <input type= "text" name="generoFil" value="<?=$filme['generoFil']?>"></p>
                 <p>Duração <input type="text" name="duracaoFil" value="<?=$filme['duracaoFil']?>"></p>

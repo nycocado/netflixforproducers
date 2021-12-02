@@ -1,6 +1,6 @@
 <?php
 include("../model/conexao.php");
-include("../model/bancoFilmes.php");
+include("../model/bancoProdutoras.php");
 include("../view/header.php");
 ?>
 <div class="container3">
@@ -8,10 +8,10 @@ include("../view/header.php");
         <div class="card-body">
             <?php
             extract($_REQUEST,EXTR_OVERWRITE);
-            if(alterarFilmes($conexao,$codProFK,$nomeFil,$generoFil,$duracaoFil,$diretorFil,$roteiristaFil,$sinopseFil)){
-                echo("Filme alterado com sucesso.");
+            if(alterarProdutoras($conexao,$nomePro,$fundadorPro,$fundacaoPro,$proprietarioPro)){
+                echo("Produtora alterada com sucesso.");
             }else{
-                echo("Filme não alterado.");
+                echo("Produtora não alterada.");
             }
             ?>
         </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02-Dez-2021 às 05:41
+-- Tempo de geração: 02-Dez-2021 às 22:08
 -- Versão do servidor: 10.4.19-MariaDB
 -- versão do PHP: 8.0.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `netflixforbusinesses`
+-- Banco de dados: `netflixforproducers`
 --
 
 -- --------------------------------------------------------
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tbadmin` (
-  `codAdmin` int(4) NOT NULL,
-  `nomeAdmin` varchar(50) NOT NULL,
-  `emailAdmin` varchar(60) NOT NULL,
-  `senhaAdmin` varchar(60) NOT NULL
+  `codAdm` int(4) NOT NULL,
+  `nomeAdm` varchar(50) NOT NULL,
+  `emailAdm` varchar(60) NOT NULL,
+  `senhaAdm` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -42,6 +42,7 @@ CREATE TABLE `tbadmin` (
 
 CREATE TABLE `tbfilmes` (
   `codFil` int(4) NOT NULL,
+  `codProFK` int(4) NOT NULL,
   `nomeFil` varchar(100) NOT NULL,
   `generoFil` varchar(500) NOT NULL,
   `duracaoFil` varchar(10) NOT NULL,
@@ -50,12 +51,27 @@ CREATE TABLE `tbfilmes` (
   `sinopseFil` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Extraindo dados da tabela `tbfilmes`
+-- Estrutura da tabela `tbprodutoras`
 --
 
-INSERT INTO `tbfilmes` (`codFil`, `nomeFil`, `generoFil`, `duracaoFil`, `diretorFil`, `roteiristaFil`, `sinopseFil`) VALUES
-(12, '', '', '', '', '', '');
+CREATE TABLE `tbprodutoras` (
+  `codPro` int(4) NOT NULL,
+  `nomePro` varchar(50) NOT NULL,
+  `fundadorPro` varchar(100) NOT NULL,
+  `fundacaoPro` date NOT NULL,
+  `proprietarioPro` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tbprodutoras`
+--
+
+INSERT INTO `tbprodutoras` (`codPro`, `nomePro`, `fundadorPro`, `fundacaoPro`, `proprietarioPro`) VALUES
+(3, 'bbb', '', '0000-00-00', ''),
+(4, 'bbb', '', '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -65,19 +81,13 @@ INSERT INTO `tbfilmes` (`codFil`, `nomeFil`, `generoFil`, `duracaoFil`, `diretor
 
 CREATE TABLE `tbseries` (
   `codSer` int(4) NOT NULL,
+  `codProFK` int(4) NOT NULL,
   `nomeSer` varchar(100) NOT NULL,
   `generoSer` varchar(500) NOT NULL,
   `episodiosSer` int(3) NOT NULL,
   `temporadasSer` int(2) NOT NULL,
   `sinopseSer` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `tbseries`
---
-
-INSERT INTO `tbseries` (`codSer`, `nomeSer`, `generoSer`, `episodiosSer`, `temporadasSer`, `sinopseSer`) VALUES
-(12, '', '', 0, 0, '');
 
 --
 -- Índices para tabelas despejadas
@@ -87,19 +97,27 @@ INSERT INTO `tbseries` (`codSer`, `nomeSer`, `generoSer`, `episodiosSer`, `tempo
 -- Índices para tabela `tbadmin`
 --
 ALTER TABLE `tbadmin`
-  ADD PRIMARY KEY (`codAdmin`);
+  ADD PRIMARY KEY (`codAdm`);
 
 --
 -- Índices para tabela `tbfilmes`
 --
 ALTER TABLE `tbfilmes`
-  ADD PRIMARY KEY (`codFil`);
+  ADD PRIMARY KEY (`codFil`) USING BTREE,
+  ADD KEY `relacaoCodPro_CodProFK` (`codProFK`);
+
+--
+-- Índices para tabela `tbprodutoras`
+--
+ALTER TABLE `tbprodutoras`
+  ADD PRIMARY KEY (`codPro`);
 
 --
 -- Índices para tabela `tbseries`
 --
 ALTER TABLE `tbseries`
-  ADD PRIMARY KEY (`codSer`);
+  ADD PRIMARY KEY (`codSer`),
+  ADD KEY `relacaoCodPro_CodProFK2` (`codProFK`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -109,19 +127,41 @@ ALTER TABLE `tbseries`
 -- AUTO_INCREMENT de tabela `tbadmin`
 --
 ALTER TABLE `tbadmin`
-  MODIFY `codAdmin` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `codAdm` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tbfilmes`
 --
 ALTER TABLE `tbfilmes`
-  MODIFY `codFil` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `codFil` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT de tabela `tbprodutoras`
+--
+ALTER TABLE `tbprodutoras`
+  MODIFY `codPro` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `tbseries`
 --
 ALTER TABLE `tbseries`
-  MODIFY `codSer` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `codSer` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `tbfilmes`
+--
+ALTER TABLE `tbfilmes`
+  ADD CONSTRAINT `relacaoCodPro_CodProFK` FOREIGN KEY (`codProFK`) REFERENCES `tbprodutoras` (`codPro`);
+
+--
+-- Limitadores para a tabela `tbseries`
+--
+ALTER TABLE `tbseries`
+  ADD CONSTRAINT `relacaoCodPro_CodProFK2` FOREIGN KEY (`codProFK`) REFERENCES `tbprodutoras` (`codPro`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

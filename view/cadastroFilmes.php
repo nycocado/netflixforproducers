@@ -5,6 +5,7 @@ include_once("header.php");
     <div class="card">
         <div class="card-body">
             <form method="POST" action="../controller/inserirFilmes.php">
+                <p>Código da Produtora <input type="number" name="codProFK"></p>
                 <p>Nome <input type="text" name="nomeFil"></p>
                 <p>Gênero(s) <input type="text" name="generoFil"></p>
                 <p>Duração <input type="text" name="duracaoFil"></p>
