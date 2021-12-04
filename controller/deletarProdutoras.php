@@ -8,10 +8,10 @@ include("../view/header.php");
         <div class="card-body">
             <?php
             extract($_REQUEST,EXTR_OVERWRITE);
-            if(alterarProdutoras($conexao,$codPro,$nomePro,$fundadorPro,$fundacaoPro,$proprietarioPro)){
-                echo("Produtora alterada com sucesso.");
+            if(deletarProdutoras($conexao,$codProDeletar)){
+                echo("Produtora deletada com sucesso.");
             }else{
-                echo("Produtora não alterada.");
+                echo("Produtora não deletada.");
             }
             ?>
         </div>

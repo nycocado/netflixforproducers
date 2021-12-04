@@ -20,8 +20,8 @@
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }
-    function alterarProdutoras($conexao,$nomePro,$fundadorPro,$fundacaoPro,$proprietarioPro){
-        $query="update tbprodutoras set nomePro='{$nomePro}', fundadorPro='{$fundadorPro}', fundacaoPro='{$fundacaoPro}' where proprietarioPro='{$proprietarioPro}'";
+    function alterarProdutoras($conexao,$codPro,$nomePro,$fundadorPro,$fundacaoPro,$proprietarioPro){
+        $query="update tbprodutoras set nomePro='{$nomePro}', fundadorPro='{$fundadorPro}', fundacaoPro='{$fundacaoPro}', proprietarioPro='{$proprietarioPro}' where codPro='{$codPro}'";
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }

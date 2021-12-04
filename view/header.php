@@ -1,3 +1,14 @@
+<?php
+if( session_status() !== PHP_SESSION_ACTIVE )
+{
+  session_start();
+}
+
+if(!$_SESSION["emailAdm"]){
+  $_SESSION["msg"]="<div class='alert alert-danger' role='alert'>Você não tem acesso... tente novamente.</div>";
+  header("Location:../view/logar.php");
+}
+?>
 <!DOCTYPE HTML>
 <html lang="pt-BR">
     <head>

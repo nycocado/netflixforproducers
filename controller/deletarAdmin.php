@@ -1,6 +1,6 @@
 <?php
 include("../model/conexao.php");
-include("../model/bancoProdutoras.php");
+include("../model/bancoAdmin.php");
 include("../view/header.php");
 ?>
 <div class="container3">
@@ -8,10 +8,10 @@ include("../view/header.php");
         <div class="card-body">
             <?php
             extract($_REQUEST,EXTR_OVERWRITE);
-            if(alterarProdutoras($conexao,$codPro,$nomePro,$fundadorPro,$fundacaoPro,$proprietarioPro)){
-                echo("Produtora alterada com sucesso.");
+            if(deletarAdmin($conexao,$codAdmDeletar)){
+                echo("Administrador deletado com sucesso.");
             }else{
-                echo("Produtora não alterada.");
+                echo("Administrador não deletado.");
             }
             ?>
         </div>

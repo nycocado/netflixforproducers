@@ -11,10 +11,16 @@
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }
-    function alterarAdmin($conexao,$nomeAdm,$emailAdm,$senhaAdm){
+    function listaAdminCod($conexao,$codAdm){
+        $query="select * from tbadmin where codAdm={$codAdm}";
+        $resultados=mysqli_query($conexao,$query);
+        $resul=mysqli_fetch_array($resultados);
+        return $resul;
+    }
+    function alterarAdmin($conexao,$codAdm,$nomeAdm,$emailAdm,$senhaAdm){
         $option=['cost'=>8];
         $senhacrypto= password_hash($senhaAdm,PASSWORD_BCRYPT,$option);
-        $query="update tbadmin set nomeAdm='{$nomeAdm}', emailAdm='{$emailAdm}' where senhaAdm='{$senhacrypto}'";
+        $query="update tbadmin set nomeAdm='{$nomeAdm}', emailAdm='{$emailAdm}', senhaAdm='{$senhacrypto}' where codAdm='{$codAdm}'";
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }

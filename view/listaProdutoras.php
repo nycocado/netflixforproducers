@@ -18,24 +18,24 @@ include_once("../model/bancoProdutoras.php");
     </thead>
     <tbody>
         <?php
-        $produtoras = listaProdutoras($conexao);
-        foreach($produtoras as $produtora):
+        $produtora = listaProdutoras($conexao);
+        foreach($produtora as $produtoras):
         ?>
         <tr>
-            <th scope="row"><?=$produtora['codPro']?></th>
-            <td><?=$produtora['nomePro']?></td>
-            <td><?=$produtora['fundadorPro']?></td>
-            <td><?=$produtora['fundacaoPro']?></td>
-            <td><?=$produtora['proprietarioPro']?></td>
+            <th scope="row"><?=$produtoras['codPro']?></th>
+            <td><?=$produtoras['nomePro']?></td>
+            <td><?=$produtoras['fundadorPro']?></td>
+            <td><?=$produtoras['fundacaoPro']?></td>
+            <td><?=$produtoras['proprietarioPro']?></td>
             <td>
                 <form action="../controller/deletarProdutoras.php" method="POST">
-                    <input type="hidden" name="codProDeletar" value="<?=$produtora['codPro']?>">
+                    <input type="hidden" name="codProDeletar" value="<?=$produtoras['codPro']?>">
                     <button type="submit" class="btn btn-danger">Deletar</button>
                 </form>
             </td>
             <td>
                 <form action="formAlterarProdutoras.php" method="POST">
-                    <input type="hidden" name="codProAlterar" value="<?=$produtora['codPro']?>">
+                    <input type="hidden" name="codProAlterar" value="<?=$produtoras['codPro']?>">
                     <button type="submit" class="btn btn-success">Alterar</button>
                 </form>
             </td>

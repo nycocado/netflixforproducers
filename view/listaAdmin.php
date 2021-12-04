@@ -1,7 +1,7 @@
 <?php
 include_once("header.php");
 include_once("../model/conexao.php");
-include_once("../model/bancoFilmes.php");
+include_once("../model/bancoAdmin.php");
 ?>
 <div class="container">
 <table class="table text-light">
@@ -9,31 +9,31 @@ include_once("../model/bancoFilmes.php");
         <tr>
             <th scope="col">Código</th>
             <th scope="col">Nome</th>
-            <th scope="col">Gênero</th>
-            <th scope="col">Duração</th>
+            <th scope="col">Email</th>
+            <th scope="col">Senha</th>
             <th scope="col">Deletar</th>
             <th scope="col">Alterar</th>
         </tr>
     </thead>
     <tbody>
         <?php
-        $filme = listaFilmes($conexao);
-        foreach($filme as $filmes):
+        $admin = listaAdmin($conexao);
+        foreach($admin as $admins):
         ?>
         <tr>
-            <th scope="row"><?=$filmes['codFil']?></th>
-            <td><?=$filmes['nomeFil']?></td>
-            <td><?=$filmes['generoFil']?></td>
-            <td><?=$filmes['duracaoFil']?></td>
+            <th scope="row"><?=$admins['codAdm']?></th>
+            <td><?=$admins['nomeAdm']?></td>
+            <td><?=$admins['emailAdm']?></td>
+            <td><?=$admins['senhaAdm']?></td>
             <td>
-                <form action="../controller/deletarFilmes.php" method="POST">
-                    <input type="hidden" name="codFilDeletar" value="<?=$filmes['codFil']?>">
+                <form action="../controller/deletarAdmin.php" method="POST">
+                    <input type="hidden" name="codAdmDeletar" value="<?=$admins['codAdm']?>">
                     <button type="submit" class="btn btn-danger">Deletar</button>
                 </form>
             </td>
             <td>
-                <form action="formAlterarFilmes.php" method="POST">
-                    <input type="hidden" name="codFilAlterar" value="<?=$filmes['codFil']?>">
+                <form action="formAlterarAdmin.php" method="POST">
+                    <input type="hidden" name="codAdmAlterar" value="<?=$admins['codAdm']?>">
                     <button type="submit" class="btn btn-success">Alterar</button>
                 </form>
             </td>

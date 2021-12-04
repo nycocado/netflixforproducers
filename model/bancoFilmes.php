@@ -20,8 +20,8 @@
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }
-    function alterarFilmes($conexao,$codProFK,$nomeFil,$generoFil,$duracaoFil,$diretorFil,$roteiristaFil,$sinopseFil){
-        $query="update tbfilmes set codProFK='{$codProFK}', nomeFil='{$nomeFil}', generoFil='{$generoFil}', duracaoFil='{$duracaoFil}', diretorFil='{$diretorFil}', roteiristaFil='{$roteiristaFil}' where sinopseFil='{$sinopseFil}'";
+    function alterarFilmes($conexao,$codFil,$codProFK,$nomeFil,$generoFil,$duracaoFil,$diretorFil,$roteiristaFil,$sinopseFil){
+        $query="update tbfilmes set codProFK='{$codProFK}', nomeFil='{$nomeFil}', generoFil='{$generoFil}', duracaoFil='{$duracaoFil}', diretorFil='{$diretorFil}', roteiristaFil='{$roteiristaFil}', sinopseFil='{$sinopseFil}' where codFil='{$codFil}'";
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }

@@ -20,8 +20,8 @@
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }
-    function alterarSeries($conexao,$codProFK,$nomeSer,$generoSer,$episodiosSer,$temporadasSer,$sinopseSer){
-        $query="update tbseries set codProFK='{$codProFK}', nomeSer='{$nomeSer}', generoSer='{$generoSer}', episodiosSer='{$episodiosSer}', temporadasSer='{$temporadasSer}' where sinopseSer='{$sinopseSer}'";
+    function alterarSeries($conexao,$codSer,$codProFK,$nomeSer,$generoSer,$episodiosSer,$temporadasSer,$sinopseSer){
+        $query="update tbseries set codProFK='{$codProFK}', nomeSer='{$nomeSer}', generoSer='{$generoSer}', episodiosSer='{$episodiosSer}', temporadasSer='{$temporadasSer}', sinopseSer='{$sinopseSer}' where codSer='{$codSer}'";
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }

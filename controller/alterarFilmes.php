@@ -8,7 +8,7 @@ include("../view/header.php");
         <div class="card-body">
             <?php
             extract($_REQUEST,EXTR_OVERWRITE);
-            if(alterarFilmes($conexao,$codProFK,$nomeFil,$generoFil,$duracaoFil,$diretorFil,$roteiristaFil,$sinopseFil)){
+            if(alterarFilmes($conexao,$codFil,$codProFK,$nomeFil,$generoFil,$duracaoFil,$diretorFil,$roteiristaFil,$sinopseFil)){
                 echo("Filme alterado com sucesso.");
             }else{
                 echo("Filme não alterado.");

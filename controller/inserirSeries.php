@@ -9,7 +9,7 @@ include("../view/header.php");
             <?php
             extract($_REQUEST,EXTR_OVERWRITE);
             if(inserirSeries($conexao,$codProFK,$nomeSer,$generoSer,$episodiosSer,$temporadasSer,$sinopseSer)){
-                echo("Sua série foi enviada para analise com sucesso, retornaremos assim que analisado. ");
+                echo("Sua série foi enviada para analise com sucesso, retornaremos assim que analisada. ");
                 echo(";)");
             }else{
                 echo("<p>Sua série não foi cadastrada.</p>");

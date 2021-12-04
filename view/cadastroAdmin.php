@@ -1,5 +1,9 @@
 <?php
-include_once("header.php");
+session_start();
+$email = isset($_SESSION["emailAdm"])?$_SESSION["emailAdm"]:null;
+if($email != null){
+    include("header.php");
+}
 ?>
 <div class="container3">
     <div class="card">

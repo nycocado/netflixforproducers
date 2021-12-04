@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02-Dez-2021 às 22:08
--- Versão do servidor: 10.4.19-MariaDB
--- versão do PHP: 8.0.6
+-- Tempo de geração: 05-Dez-2021 às 00:24
+-- Versão do servidor: 10.4.22-MariaDB
+-- versão do PHP: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -65,14 +65,6 @@ CREATE TABLE `tbprodutoras` (
   `proprietarioPro` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `tbprodutoras`
---
-
-INSERT INTO `tbprodutoras` (`codPro`, `nomePro`, `fundadorPro`, `fundacaoPro`, `proprietarioPro`) VALUES
-(3, 'bbb', '', '0000-00-00', ''),
-(4, 'bbb', '', '0000-00-00', '');
-
 -- --------------------------------------------------------
 
 --
@@ -127,25 +119,25 @@ ALTER TABLE `tbseries`
 -- AUTO_INCREMENT de tabela `tbadmin`
 --
 ALTER TABLE `tbadmin`
-  MODIFY `codAdm` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `codAdm` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `tbfilmes`
 --
 ALTER TABLE `tbfilmes`
-  MODIFY `codFil` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `codFil` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `tbprodutoras`
 --
 ALTER TABLE `tbprodutoras`
-  MODIFY `codPro` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `codPro` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `tbseries`
 --
 ALTER TABLE `tbseries`
-  MODIFY `codSer` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `codSer` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Restrições para despejos de tabelas
