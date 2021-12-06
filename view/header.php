@@ -1,14 +1,3 @@
-<?php
-if( session_status() !== PHP_SESSION_ACTIVE )
-{
-  session_start();
-}
-
-if(!$_SESSION["emailAdm"]){
-  $_SESSION["msg"]="<div class='alert alert-danger' role='alert'>Você não tem acesso... tente novamente.</div>";
-  header("Location:../view/logar.php");
-}
-?>
 <!DOCTYPE HTML>
 <html lang="pt-BR">
     <head>
@@ -64,19 +53,7 @@ if(!$_SESSION["emailAdm"]){
                                 <li><a class="dropdown-item" href="../view/listaSeriesNome.php">Buscar por Nome</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Admin
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="../view/cadastroAdmin.php">Cadastro</a></li>
-                                <li><a class="dropdown-item" href="../view/listaAdmin.php">Visualizar</a></li>
-                            </ul>
-                        </li>
                     </ul>
-                    <form class="d-flex" action="../controller/sair.php">
-                        <button class="btn btn-outline-light" type="submit">Sair</button>
-                    </form>
                 </div>
             </div>
         </nav>

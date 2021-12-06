@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Dez-2021 às 00:24
--- Versão do servidor: 10.4.22-MariaDB
--- versão do PHP: 8.0.13
+-- Tempo de geração: 06-Dez-2021 às 17:14
+-- Versão do servidor: 10.4.20-MariaDB
+-- versão do PHP: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,19 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `netflixforproducers`
 --
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `tbadmin`
---
-
-CREATE TABLE `tbadmin` (
-  `codAdm` int(4) NOT NULL,
-  `nomeAdm` varchar(50) NOT NULL,
-  `emailAdm` varchar(60) NOT NULL,
-  `senhaAdm` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -86,12 +73,6 @@ CREATE TABLE `tbseries` (
 --
 
 --
--- Índices para tabela `tbadmin`
---
-ALTER TABLE `tbadmin`
-  ADD PRIMARY KEY (`codAdm`);
-
---
 -- Índices para tabela `tbfilmes`
 --
 ALTER TABLE `tbfilmes`
@@ -114,12 +95,6 @@ ALTER TABLE `tbseries`
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
-
---
--- AUTO_INCREMENT de tabela `tbadmin`
---
-ALTER TABLE `tbadmin`
-  MODIFY `codAdm` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `tbfilmes`
